@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.applet.*;
 
 public abstract class GameApplet extends    Applet 
-                                 implements Runnable, 
+                                implements Runnable, 
                                             KeyListener, 
                                             MouseListener, 
                                             MouseMotionListener
