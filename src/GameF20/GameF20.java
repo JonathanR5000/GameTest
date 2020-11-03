@@ -7,6 +7,9 @@ import java.util.*;
 public class GameF20 extends GameApplet
 {
    //------------------------------------------------------------------------//
+	public static void main (String[]args){
+		
+	}
 
 	Soldier    soldier    = new Soldier(100, 100, Soldier.DOWN);
 	BattleLord battlelord = new BattleLord(200, 500, BattleLord.LEFT);
