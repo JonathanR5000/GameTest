@@ -23,7 +23,7 @@ public class GameF20 extends GameApplet
 	
 	Random rnd = new Random(System.currentTimeMillis());
 
-	Image space = Toolkit.getDefaultToolkit().getImage("space_background1.png");
+	//Image space = Toolkit.getDefaultToolkit().getImage("space_background1.png");
 	
    //------------------------------------------------------------------------//
 	
@@ -224,7 +224,7 @@ public class GameF20 extends GameApplet
 
 	public void paint(Graphics g)
 	{		
-		g.drawImage(space, 0, 0, null);
+		//g.drawImage(space, 0, 0, null);
 		soldier.draw(g);
 		battlelord.draw(g);
 		spaceship.draw(g);
