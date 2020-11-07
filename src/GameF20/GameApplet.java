@@ -5,12 +5,7 @@ import java.awt.event.*;
 
 import java.applet.*;
 
-public abstract class GameApplet extends    Applet 
-                                implements Runnable, 
-                                            KeyListener, 
-                                            MouseListener, 
-                                            MouseMotionListener
-{
+public abstract class GameApplet extends    Applet implements Runnable,KeyListener,MouseListener,MouseMotionListener{
    //------------------------------------------------------------------------//
 
 	Image    off_screen_image;
@@ -151,7 +146,7 @@ public abstract class GameApplet extends    Applet
    // All mouse related method to be overridden in the derived class
    //------------------------------------------------------------------------//
    
-   	public void mouseMoved   (MouseEvent e)   {	}  
+    public void mouseMoved   (MouseEvent e)   {	}  
 	public void mouseDragged (MouseEvent e)	{	}
 	public void mousePressed (MouseEvent e)	{	}
 	public void mouseReleased(MouseEvent e)   {	}
