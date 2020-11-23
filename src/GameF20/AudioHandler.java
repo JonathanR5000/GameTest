@@ -1,4 +1,3 @@
-package GameV12_proj_V2;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
