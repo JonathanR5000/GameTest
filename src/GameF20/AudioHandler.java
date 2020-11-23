@@ -1,4 +1,3 @@
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -8,12 +7,12 @@ public class AudioHandler implements Runnable
 {
 
     //------------------------------------------------------------------------//
-    String path 	 = "";
-    String theme 	 = path + "ElectricboyTheme.wav";
+    String path 	 = "C:\\Myprogrmas\\com.TextBookCodeAlong\\src\\teamGame2020\\Sound";
+    String theme 	 = path + "\\Themes\\acciónTheme.wav";
     String enemyExplosion= path + "enemyExplosion.wav";
-    String ShootLaser	 = path + "ShootLaser.wav";
+    String ShootLaser	 = path + "\\SpaceShip\\ShootLaser2.wav";
     String shipExplosion = path + "shipExplosion.wav";
-
+    String teleport = path + "\\SpaceShip\\Teleport.wav";
     //------------------------------------------------------------------------//
 
 // let AudioHandler run as its own thread
@@ -27,9 +26,19 @@ public class AudioHandler implements Runnable
     public void run()
     {
     }
-
- //------------------------------------------------------------------------//
-	//play game theme
+    void play(File soundFile)
+    { //play any sound file
+//        File file = new File(theme);
+        try
+        {
+            AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(sound);
+            clip.start();//
+        }
+        catch(Exception ex)
+        { }
+    }
     public void playTheme()
     {
         File file = new File(theme);
@@ -44,20 +53,12 @@ public class AudioHandler implements Runnable
         { }
     }
 
- //------------------------------------------------------------------------//
-	//explosion sound
+    //------------------------------------------------------------------------//
+    //explosion sound
     void enemyExplosion()
     {//play sound once
         File file = new File(enemyExplosion);
-        try
-        {
-            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(sound);
-            clip.start();//
-        }
-        catch(Exception ex)
-        { }
+        play(file);
     }
 
 //------------------------------------------------------------------------//
@@ -65,15 +66,7 @@ public class AudioHandler implements Runnable
     void shootLaser()
     {
         File file = new File(ShootLaser);
-        try
-        {
-            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(sound);
-            clip.start();//
-        }
-        catch(Exception ex)
-        { }
+        play(file);
     }
 
 //------------------------------------------------------------------------//
@@ -81,14 +74,18 @@ public class AudioHandler implements Runnable
     void shipExplosion()
     {//play sound once
         File file = new File(shipExplosion);
-        try
-        {
-            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(sound);
-            clip.start();//
-        }
-        catch(Exception ex)
-        { }
+        play(file);
+    }
+    //------------------------------------------------------------------------
+    void levelComplete()
+    {//play end level sound
+
+    }
+
+    //------------------------------------------------------------------------
+    void playTeleport()
+    {
+        File file = new File(teleport);
+        play(file);
     }
 }
