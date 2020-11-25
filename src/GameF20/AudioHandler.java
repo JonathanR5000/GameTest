@@ -8,11 +8,11 @@ public class AudioHandler implements Runnable
 
     //------------------------------------------------------------------------//
     String path 	 = "C:\\Myprogrmas\\com.TextBookCodeAlong\\src\\teamGame2020\\Sound";
-    String theme 	 = path + "\\Themes\\acciónTheme.wav";
-    String enemyExplosion= path + "enemyExplosion.wav";
-    String ShootLaser	 = path + "\\SpaceShip\\ShootLaser2.wav";
-    String shipExplosion = path + "shipExplosion.wav";
-    String teleport = path + "\\SpaceShip\\Teleport.wav";
+    File theme 	 = new File(path + "\\Themes\\acciónTheme.wav");
+    File enemyExplosion= new File(path + "enemyExplosion.wav");
+    File ShootLaser	 = new File(path + "\\SpaceShip\\ShootLaser2.wav");
+    File shipExplosion = new File(path + "shipExplosion.wav");
+    File teleport = new File(path + "\\SpaceShip\\Teleport.wav");
     //------------------------------------------------------------------------//
 
 // let AudioHandler run as its own thread
@@ -41,10 +41,9 @@ public class AudioHandler implements Runnable
     }
     public void playTheme()
     {
-        File file = new File(theme);
         try
         {
-            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+            AudioInputStream sound = AudioSystem.getAudioInputStream(theme);
             Clip clip = AudioSystem.getClip();
             clip.open(sound);
             clip.loop(Clip.LOOP_CONTINUOUSLY);//
@@ -57,24 +56,22 @@ public class AudioHandler implements Runnable
     //explosion sound
     void enemyExplosion()
     {//play sound once
-        File file = new File(enemyExplosion);
-        play(file);
+        
+        play(enemyExplosion);
     }
 
 //------------------------------------------------------------------------//
 
     void shootLaser()
     {
-        File file = new File(ShootLaser);
-        play(file);
+        play(ShootLaser);
     }
 
 //------------------------------------------------------------------------//
 
     void shipExplosion()
     {//play sound once
-        File file = new File(shipExplosion);
-        play(file);
+        play(shipExplosion);
     }
     //------------------------------------------------------------------------
     void levelComplete()
@@ -85,7 +82,5 @@ public class AudioHandler implements Runnable
     //------------------------------------------------------------------------
     void playTeleport()
     {
-        File file = new File(teleport);
-        play(file);
+        play(teleport);
     }
-}
