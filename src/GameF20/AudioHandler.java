@@ -14,7 +14,11 @@ public class AudioHandler implements Runnable
     File shipExplosion = new File(path + "shipExplosion.wav");
     File teleport = new File(path + "\\SpaceShip\\Teleport.wav");
     //------------------------------------------------------------------------//
-
+    
+     //instantiate clip for theme sound
+    Clip themeClip;
+   //------------------------------------------------------------------------//
+   
 // let AudioHandler run as its own thread
     public AudioHandler()
     {
@@ -28,7 +32,6 @@ public class AudioHandler implements Runnable
     }
     void play(File soundFile)
     { //play any sound file
-//        File file = new File(theme);
         try
         {
             AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
@@ -39,17 +42,21 @@ public class AudioHandler implements Runnable
         catch(Exception ex)
         { }
     }
+  //------------------------------------------------------------------------//
     public void playTheme()
     {
+
         try
         {
             AudioInputStream sound = AudioSystem.getAudioInputStream(theme);
-            Clip clip = AudioSystem.getClip();
-            clip.open(sound);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);//
+            themeClip = AudioSystem.getClip();
+            themeClip.open(sound);
+            themeClip.loop(Clip.LOOP_CONTINUOUSLY);//
         }
         catch(Exception ex)
         { }
+
+
     }
 
     //------------------------------------------------------------------------//
@@ -84,3 +91,12 @@ public class AudioHandler implements Runnable
     {
         play(teleport);
     }
+    //------------------------------------------------------------------------//
+    void stopTheme()
+    {
+        if (themeClip != null && themeClip.isRunning())
+        {
+            themeClip.stop();
+        }
+    }  
+}
